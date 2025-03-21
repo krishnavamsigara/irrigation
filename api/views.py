@@ -11,11 +11,11 @@ class GetRecommendations(APIView):
     def post(self, request):
         state = request.data.get('state')
         crop = request.data.get('crop')
-        soil = request.data.get('soil')
+        soil = request.data.get('soil_type')
         temperature = request.data.get('temperature')
         humidity = request.data.get('humidity')
         rainfall = request.data.get('rainfall')
-        moisture = request.data.get('moisture')
+        moisture = request.data.get('soil_moisture')
 
         if not all([state, crop, soil, temperature, humidity, rainfall, moisture]):
             return Response({"error": "Please provide all fields: state, crop, soil, temperature, humidity, rainfall, moisture."}, status=status.HTTP_400_BAD_REQUEST)
